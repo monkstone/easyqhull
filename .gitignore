@@ -1,6 +1,9 @@
 *.class
+*.obj
+*.png
 
 # Package Files #
 *.jar
 *.war
 *.ear
+
