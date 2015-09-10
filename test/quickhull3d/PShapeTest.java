@@ -52,10 +52,10 @@ public class PShapeTest extends PApplet {
         shape.specular(50, 20, 20);
         int[][] faceIndices = hull.getFaces();
         //run through faces (each point on each face), and draw them
-        for (int i = 0; i < faceIndices.length; i++) {
-            for (int k = 0; k < faceIndices[i].length; k++) {
+        for (int[] faceIndice : faceIndices) {
+            for (int k = 0; k < faceIndice.length; k++) {
                 //get points that correspond to each face
-                Point3d pnt2 = vertices[faceIndices[i][k]];
+                Point3d pnt2 = vertices[faceIndice[k]];
                 float x = (float) pnt2.x;
                 float y = (float) pnt2.y;
                 float z = (float) pnt2.z;

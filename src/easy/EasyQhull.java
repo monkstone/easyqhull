@@ -33,7 +33,7 @@ public class EasyQhull extends quickhull3d.QuickHull3D {
     public EasyQhull(PApplet parent) {
         super();
         this.parent = parent;
-        setActive(false);
+        setActive(true);
     }
 
     /**
@@ -41,7 +41,7 @@ public class EasyQhull extends quickhull3d.QuickHull3D {
      * @param pts
      */
     public void build(float[][] pts) {
-        List<Point3d> list = new ArrayList<Point3d>();
+        List<Point3d> list = new ArrayList<>();
         for (float[] pt : pts) {
             Point3d p3 = new Point3d((double) pt[0], (double) pt[1], (double) pt[2]);
             list.add(p3);
@@ -56,9 +56,9 @@ public class EasyQhull extends quickhull3d.QuickHull3D {
     public float[][] getVertArray() {
         float[][] vertices = new float[numVertices][3];
         for (int i = 0; i < numVertices; i++) {
-            vertices[i][X] = (float) pointBuffer[vertexPointIndices[i]].getPoint().x;
-            vertices[i][Y] = (float) pointBuffer[vertexPointIndices[i]].getPoint().y;
-            vertices[i][Z] = (float) pointBuffer[vertexPointIndices[i]].getPoint().z;
+            vertices[i][X] =  (float) pointBuffer[vertexPointIndices[i]].getPoint().x;
+            vertices[i][Y] =  (float) pointBuffer[vertexPointIndices[i]].getPoint().y;
+            vertices[i][Z] =  (float) pointBuffer[vertexPointIndices[i]].getPoint().z;
         }
         return vertices;
     }
@@ -75,7 +75,7 @@ public class EasyQhull extends quickhull3d.QuickHull3D {
     /**
      * Uses built in QuckHull3D utility to export data as wavefront obj file
      *
-     * @param filename
+     * @param file
      */
     public void exportWavefront(String file) {
         File obj = new File(parent.dataPath(file));

@@ -27,14 +27,17 @@ public class Vector3d {
      * Precision of a double.
      */
     static private final double DOUBLE_PREC = 2.2204460492503131e-16;
+
     /**
      * First element
      */
     public double x;
+
     /**
      * Second element
      */
     public double y;
+
     /**
      * Third element
      */
@@ -98,7 +101,7 @@ public class Vector3d {
      * @param i element index
      * @param value element value
      */
-    public final void set(int i, double value) {
+    public void set(int i, double value) {
         switch (i) {
             case 0: {
                 x = value;
@@ -176,8 +179,7 @@ public class Vector3d {
     }
 
     /**
-     * Scales the elements of this vector by
-     * <code>s</code>.
+     * Scales the elements of this vector by <code>s</code>.
      *
      * @param s scaling factor
      */
@@ -188,8 +190,8 @@ public class Vector3d {
     }
 
     /**
-     * Scales the elements of vector v1 by
-     * <code>s</code> and places the results in this vector.
+     * Scales the elements of vector v1 by <code>s</code> and places the results
+     * in this vector.
      *
      * @param s scaling factor
      * @param v1 vector to be scaled
@@ -223,7 +225,7 @@ public class Vector3d {
     /**
      * Returns the Euclidean distance between this vector and vector v.
      *
-     * @param v 
+     * @param v
      * @return distance between this vector and v
      */
     public double distance(Vector3d v) {
@@ -238,7 +240,7 @@ public class Vector3d {
      * Returns the squared of the Euclidean distance between this vector and
      * vector v.
      *
-     * @param v 
+     * @param v
      * @return squared distance between this vector and v
      */
     public double distanceSquared(Vector3d v) {
@@ -266,7 +268,7 @@ public class Vector3d {
         double lenSqr = x * x + y * y + z * z;
         double err = lenSqr - 1;
         if (err > (2 * DOUBLE_PREC)
-                || err < -(2 * DOUBLE_PREC)) {
+            || err < -(2 * DOUBLE_PREC)) {
             double len = Math.sqrt(lenSqr);
             x /= len;
             y /= len;
@@ -321,7 +323,7 @@ public class Vector3d {
      * @param upper upper random value (exclusive)
      * @param generator random number generator
      */
-    public void setRandom(double lower, double upper, Random generator) {
+    protected void setRandom(double lower, double upper, Random generator) {
         double range = upper - lower;
 
         x = generator.nextDouble() * range + lower;

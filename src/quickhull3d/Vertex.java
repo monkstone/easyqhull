@@ -11,23 +11,27 @@ public class Vertex {
     /**
      * Spatial point associated with this vertex.
      */
-    protected Point3d pnt;
+    Point3d pnt;
+
     /**
      * Back index into an array.
      */
-    protected int index;
+    int index;
+
     /**
      * List forward link.
      */
-    protected Vertex prev;
+    Vertex prev;
+
     /**
      * List backward link.
      */
-    protected Vertex next;
+    Vertex next;
+
     /**
      * Current face that this vertex is outside of.
      */
-    protected Face face;
+    Face face;
 
     /**
      * Constructs a vertex and sets its coordinates to 0.
@@ -35,24 +39,22 @@ public class Vertex {
     public Vertex() {
         pnt = new Point3d();
     }
-    
-    /**
-     *
-     * @return
-     */
-    public Point3d getPoint(){
-        return pnt;
-    }
 
     /**
      * Constructs a vertex with the specified coordinates and index.
-     * @param x 
+     *
+     * @param x
      * @param y
-     * @param z 
-     * @param idx  
+     * @param z
+     * @param idx
      */
     public Vertex(double x, double y, double z, int idx) {
         pnt = new Point3d(x, y, z);
         index = idx;
     }
+
+    public Point3d getPoint() {
+        return pnt; //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

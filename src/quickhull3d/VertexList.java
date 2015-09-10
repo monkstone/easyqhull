@@ -7,13 +7,6 @@ public class VertexList {
 
     private Vertex head;
     private Vertex tail;
-    
-    /**
-     *
-     */
-    public VertexList(){
-      head = null;
-    }
 
     /**
      * Clears this list.
@@ -24,7 +17,8 @@ public class VertexList {
 
     /**
      * Adds a vertex to the end of this list.
-     * @param vtx 
+     *
+     * @param vtx
      */
     public void add(Vertex vtx) {
         if (head == null) {
@@ -39,7 +33,8 @@ public class VertexList {
 
     /**
      * Adds a chain of vertices to the end of this list.
-     * @param vtx 
+     *
+     * @param vtx
      */
     public void addAll(Vertex vtx) {
         if (head == null) {
@@ -56,7 +51,8 @@ public class VertexList {
 
     /**
      * Deletes a vertex from this list.
-     * @param vtx 
+     *
+     * @param vtx
      */
     public void delete(Vertex vtx) {
         if (vtx.prev == null) {
@@ -73,8 +69,9 @@ public class VertexList {
 
     /**
      * Deletes a chain of vertices from this list.
-     * @param vtx1 
-     * @param vtx2 
+     *
+     * @param vtx1
+     * @param vtx2
      */
     public void delete(Vertex vtx1, Vertex vtx2) {
         if (vtx1.prev == null) {
@@ -91,8 +88,9 @@ public class VertexList {
 
     /**
      * Inserts a vertex into this list before another specificed vertex.
-     * @param vtx 
-     * @param next 
+     *
+     * @param vtx
+     * @param next
      */
     public void insertBefore(Vertex vtx, Vertex next) {
         vtx.prev = next.prev;
@@ -107,7 +105,8 @@ public class VertexList {
 
     /**
      * Returns the first element in this list.
-     * @return 
+     *
+     * @return
      */
     public Vertex first() {
         return head;
@@ -115,7 +114,8 @@ public class VertexList {
 
     /**
      * Returns true if this list is empty.
-     * @return 
+     *
+     * @return
      */
     public boolean isEmpty() {
         return head == null;

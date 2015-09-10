@@ -55,10 +55,10 @@ public class ProcessingTest extends PApplet {
         beginShape(TRIANGLES);
         int[][] faceIndices = hull.getFaces();
         //run through faces (each point on each face), and draw them
-        for (int i = 0; i < faceIndices.length; i++) {
-            for (int k = 0; k < faceIndices[i].length; k++) {
+        for (int[] faceIndice : faceIndices) {
+            for (int k = 0; k < faceIndice.length; k++) {
                 //get points that correspond to each face
-                float[] pnt2 = vertices[faceIndices[i][k]];
+                float[] pnt2 = vertices[faceIndice[k]];
                 float x = pnt2[X];
                 float y = pnt2[Y];
                 float z = pnt2[Z];
