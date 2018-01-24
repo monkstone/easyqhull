@@ -20,7 +20,7 @@ import quickhull3d.Point3d;
  */
 public class EasyQhull extends quickhull3d.QuickHull3D {
 
-    final String VERSION = "0.1";
+    final String VERSION;
     final int X = 0;
     final int Y = 1;
     final int Z = 2;
@@ -32,6 +32,7 @@ public class EasyQhull extends quickhull3d.QuickHull3D {
      */
     public EasyQhull(PApplet parent) {
         super();
+        this.VERSION = "0.2";
         this.parent = parent;
         setActive(true);
     }

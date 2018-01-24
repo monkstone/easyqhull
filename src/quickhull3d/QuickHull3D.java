@@ -401,8 +401,7 @@ public class QuickHull3D {
                 }
             }
             setHull(coords, nump, faceIndices, numf);
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
             System.exit(1);
         }
     }
@@ -439,7 +438,7 @@ public class QuickHull3D {
      * four or greater than 1/3 the length of <code>coords</code>, or the points
      * appear to be coincident, collinear, or coplanar.
      */
-    public void build(double[] coords, int nump)
+    public final void build(double[] coords, int nump)
         throws IllegalArgumentException {
         if (nump < 4) {
             throw new IllegalArgumentException(
@@ -475,7 +474,7 @@ public class QuickHull3D {
      * four or greater then the length of <code>points</code>, or the points
      * appear to be coincident, collinear, or coplanar.
      */
-    public void build(Point3d[] points, int nump)
+    public final void build(Point3d[] points, int nump)
         throws IllegalArgumentException {
         if (nump < 4) {
             throw new IllegalArgumentException(
@@ -1128,6 +1127,7 @@ public class QuickHull3D {
         }
     }
 
+    @SuppressWarnings("empty-statement")
     public void addPointToHull(Vertex eyeVtx) {
         horizon.clear();
         unclaimed.clear();
@@ -1145,7 +1145,7 @@ public class QuickHull3D {
 
             // first merge pass ... merge faces which are non-convex
         // as determined by the larger face
-        newFaces.stream().filter((face) -> (face.mark == Face.VISIBLE)).forEach((face) -> {
+        newFaces.stream().filter((face) -> (face.mark == Face.VISIBLE)).forEach((Face face) -> {
             while (doAdjacentMerge(face, NONCONVEX_WRT_LARGER_FACE));
         });
             // second merge pass ... merge faces which are non-convex
@@ -1153,7 +1153,7 @@ public class QuickHull3D {
         newFaces.stream().filter((face) -> (face.mark == Face.NON_CONVEX)).map((face) -> {
             face.mark = Face.VISIBLE;
             return face;
-        }).forEach((face) -> {
+        }).forEach((Face face) -> {
             while (doAdjacentMerge(face, NONCONVEX));
         });
         resolveUnclaimedPoints(newFaces);

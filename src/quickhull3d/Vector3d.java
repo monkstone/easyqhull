@@ -268,7 +268,7 @@ public class Vector3d {
         double lenSqr = x * x + y * y + z * z;
         double err = lenSqr - 1;
         if (err > (2 * DOUBLE_PREC)
-            || err < -(2 * DOUBLE_PREC)) {
+                || err < -(2 * DOUBLE_PREC)) {
             double len = Math.sqrt(lenSqr);
             x /= len;
             y /= len;
