@@ -1,4 +1,4 @@
-package megamu.mesh;
+package easy;
 
 import quickhull3d.QuickHull3D;
 

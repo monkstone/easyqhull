@@ -1,4 +1,4 @@
-package megamu.mesh;
+package easy;
 
 import processing.core.PApplet;
 
