@@ -38,20 +38,20 @@ public class Hull {
 		QuickHull3D quickHull = new QuickHull3D(qPoints);
 		int[][] faces = quickHull.getFaces(QuickHull3D.POINT_RELATIVE + QuickHull3D.CLOCKWISE);
 		
-		// find extrema
-		for(int i=0; i<faces.length; i++){
-			boolean isFace = true;
-			for(int j=0; j<faces[i].length; j++){
-				if(faces[i][j]==points.length){
-					isFace = false;
-					break;
-				}
-			}
-			if(isFace){
-				extrema = faces[i];
-				break;
-			}
-		}
+            // find extrema
+            for (int[] face : faces) {
+                boolean isFace = true;
+                for (int j = 0; j < face.length; j++) {
+                    if (face[j] == points.length) {
+                        isFace = false;
+                        break;
+                    }
+                }
+                if (isFace) {
+                    extrema = face;
+                    break;
+                }
+            }
 		
 		// make polygon
 		region = new MPolygon(extrema.length);
