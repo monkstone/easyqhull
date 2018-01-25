@@ -1,8 +1,8 @@
 import easy.*;
 
-ArrayList<float[]> pointVec = new ArrayList<float[]>();
+ArrayList<double[]> pointVec = new ArrayList<double[]>();
 PImage img, edges;
-float scale = 0.5;
+double scale = 0.5;
 int numPoints = 2000;
 
 void setup() {
@@ -24,13 +24,13 @@ void setup() {
       color leftPix = edges.pixels[leftLoc];
 
       // New color is difference between pixel and left neighbor
-      float diff = abs(brightness(pix) - brightness(leftPix));
+      double diff = abs(brightness(pix) - brightness(leftPix));
       edges.pixels[leftLoc] = color(diff);
     }
   }
 
   while (pointVec.size () < numPoints) {
-    float[] pnt = new float[2];
+    double[] pnt = new double[2];
     pnt[0] = random(edges.width);
     pnt[1] = random(edges.height);
     if (red(edges.get((int)pnt[0], (int)pnt[1])) > 1) {
@@ -45,20 +45,20 @@ void draw() {
   if (mousePressed) {
     
     // add a point
-    float[] pnt = new float[2];
+    double[] pnt = new double[2];
     pnt[0] = (mouseX + random(30) - 15) / scale;
     pnt[1] = (mouseY + random(30) - 15)  / scale;
     pointVec.add(pnt);
   }
 
-  float[][] pointArray = (float[][])pointVec.toArray(new float[0][]);
+  double[][] pointArray = (double[][])pointVec.toArray(new double[0][]);
   Voronoi myVoronoi = new Voronoi( pointArray );
 
   MPolygon[] myRegions = myVoronoi.getRegions();
 
   for (int i=0; i<myRegions.length; i++)
   {
-    float[][] regionCoordinates = myRegions[i].getCoords();
+    double[][] regionCoordinates = myRegions[i].getCoords();
 
     color c = img.get((int)pointArray[i][0], (int)pointArray[i][1]);
     if (mousePressed) {
@@ -87,7 +87,7 @@ void draw() {
 
 public void drawRegion(MPolygon poly) {
   beginShape();
-  float[][] coords = poly.getCoords();
+  double[][] coords = poly.getCoords();
   for (int i=0; i<coords.length; i++) {
     vertex(coords[i][0] * scale, coords[i][1] * scale);
   }

@@ -56,9 +56,9 @@ public class PShapeTest extends PApplet {
             for (int k = 0; k < faceIndice.length; k++) {
                 //get points that correspond to each face
                 Point3d pnt2 = vertices[faceIndice[k]];
-                float x = (float) pnt2.x;
-                float y = (float) pnt2.y;
-                float z = (float) pnt2.z;
+                double x = (double) pnt2.x;
+                double y = (double) pnt2.y;
+                double z = (double) pnt2.z;
                 shape.vertex(x, y, z);
             }
         }

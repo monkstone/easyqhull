@@ -1,8 +1,8 @@
 import easy.EasyQhull;
 
-float[][] data = new float[150][3];
+double[][] data = new double[150][3];
 EasyQhull hull;
-float[][] vertices;
+double[][] vertices;
 
 void setup() {
   size(200, 200, P3D);
@@ -13,7 +13,7 @@ void setup() {
   }
   hull.build(data);                 // build hull
   hull.triangulate();              // triangulate faces
-  vertices = hull.getVertArray();  // get vertices as an array of float[]
+  vertices = hull.getVertArray();  // get vertices as an array of double[]
   if (hull.check()) {
     hull.exportWavefront("test.obj");
   }
@@ -31,21 +31,21 @@ void draw() {
   for (int i = 0; i < faceIndices.length; i++) {
     for (int k = 0; k < faceIndices[i].length; k++) {
       //get points that correspond to each face
-      float[] pnt2 = vertices[faceIndices[i][k]];
-      float x = pnt2[X];
-      float y = pnt2[Y];
-      float z = pnt2[Z];
+      double[] pnt2 = vertices[faceIndices[i][k]];
+      double x = pnt2[X];
+      double y = pnt2[Y];
+      double z = pnt2[Z];
       vertex(x, y, z);
     }
   }
   endShape();
 }
 
-float[] getRandomPoint(float radius){
-  float z = random(-1, 1);
-  float rxy = sqrt(1 - z*z);
-  float phi = random(0, 2*PI);
-  float x = rxy * cos(phi);
-  float y = rxy * sin(phi);
-  return new float[]{x * radius, y * radius, z * radius};
+double[] getRandomPoint(double radius){
+  double z = random(-1, 1);
+  double rxy = sqrt(1 - z*z);
+  double phi = random(0, 2*PI);
+  double x = rxy * cos(phi);
+  double y = rxy * sin(phi);
+  return new double[]{x * radius, y * radius, z * radius};
 }

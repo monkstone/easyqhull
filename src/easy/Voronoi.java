@@ -4,13 +4,13 @@ import quickhull3d.QuickHull3D;
 
 public final class Voronoi {
 
-    float[][] edges;
+    double[][] edges;
     MPolygon[] regions;
 
-    public Voronoi(float[][] points) {
+    public Voronoi(double[][] points) {
 
         if (points.length < 1) {
-            edges = new float[0][4];
+            edges = new double[0][4];
             regions = new MPolygon[0];
             return;
         }
@@ -73,7 +73,7 @@ public final class Voronoi {
         }
 
         // create edge/point/face network
-        edges = new float[1][4];
+        edges = new double[1][4];
         int edgeCount = 0;
         LinkedArray faceNet = new LinkedArray(faces.length);
         IntArray[] pointBuckets = new IntArray[points.length];
@@ -97,15 +97,15 @@ public final class Voronoi {
                     faceNet.link(i, j);
 
                     if (edges.length <= edgeCount) {
-                        float[][] tmpedges = new float[edges.length * 2][4];
+                        double[][] tmpedges = new double[edges.length * 2][4];
                         System.arraycopy(edges, 0, tmpedges, 0, edges.length);
                         edges = tmpedges;
                     }
 
-                    edges[edgeCount][0] = (float) dualPoints[i][0];
-                    edges[edgeCount][1] = (float) dualPoints[i][1];
-                    edges[edgeCount][2] = (float) dualPoints[j][0];
-                    edges[edgeCount][3] = (float) dualPoints[j][1];
+                    edges[edgeCount][0] = (double) dualPoints[i][0];
+                    edges[edgeCount][1] = (double) dualPoints[i][1];
+                    edges[edgeCount][2] = (double) dualPoints[j][0];
+                    edges[edgeCount][3] = (double) dualPoints[j][1];
                     edgeCount++;
 
                 }
@@ -113,7 +113,7 @@ public final class Voronoi {
         }
 
         // trim edges down
-        float[][] tmpedges = new float[edgeCount][4];
+        double[][] tmpedges = new double[edgeCount][4];
         //for(int i=0; i<tmpedges.length; i++)
         //	tmpedges[i] = edges[i];
         System.arraycopy(edges, 0, tmpedges, 0, tmpedges.length);
@@ -147,7 +147,7 @@ public final class Voronoi {
             regions[i] = new MPolygon(pointBuckets[i].length);
             for (int f = 0; f < faceOrder.length; f++) {
                 int face = faceOrder.get(f);
-                regions[i].add((float) dualPoints[face][0], (float) dualPoints[face][1]);
+                regions[i].add((double) dualPoints[face][0], (double) dualPoints[face][1]);
             }
 
         }
@@ -158,7 +158,7 @@ public final class Voronoi {
         return regions;
     }
 
-    public float[][] getEdges() {
+    public double[][] getEdges() {
         return edges;
     }
 

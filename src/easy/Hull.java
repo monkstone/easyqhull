@@ -7,7 +7,7 @@ public class Hull {
 	int[] extrema;
 	MPolygon region;
 
-	public Hull( float[][] points ){
+	public Hull( double[][] points ){
 		
 		if( points.length < 3 ){
 			extrema = new int[points.length];

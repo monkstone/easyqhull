@@ -6,10 +6,10 @@ import easy.EasyQhull;
 
 
 EasyQhull hull;
-// An array of float to store the calculated vertices of the convex hull
-float[][] vertices;
+// An array of double to store the calculated vertices of the convex hull
+double[][] vertices;
 // a set of initial data points
-float[][] pts = {  
+double[][] pts = {  
   { 0.0, 0.0, 0.0}
   , 
   {
@@ -47,7 +47,7 @@ void setup() {
   hull = new EasyQhull(this);      // init quickhull
   hull.build(pts);                 // build hull
   hull.triangulate();              // triangulate faces
-  vertices = hull.getVertArray();  // get vertices as an array of float[]
+  vertices = hull.getVertArray();  // get vertices as an array of double[]
   if (hull.check()) {
     hull.exportWavefront("test.obj");
   }
@@ -67,10 +67,10 @@ void draw() {
   for (int i = 0; i < faceIndices.length; i++) {
     for (int k = 0; k < faceIndices[i].length; k++) {
       //get points that correspond to each face
-      float[] pnt2 = vertices[faceIndices[i][k]];
-      float x = pnt2[X];
-      float y = pnt2[Y];
-      float z = pnt2[Z];
+      double[] pnt2 = vertices[faceIndices[i][k]];
+      double x = pnt2[X];
+      double y = pnt2[Y];
+      double z = pnt2[Z];
       vertex(x, y, z);
     }
   }

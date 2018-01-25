@@ -4,15 +4,15 @@ import quickhull3d.QuickHull3D;
 
 public class Delaunay {
 
-    float[][] edges;
+    double[][] edges;
     LinkedArray mesh;
     int[][] links;
     int linkCount;
 
-    public Delaunay(float[][] points) {
+    public Delaunay(double[][] points) {
 
         if (points.length < 1) {
-            edges = new float[0][4];
+            edges = new double[0][4];
             mesh = new LinkedArray(0);
             links = new int[0][2];
             linkCount = 0;
@@ -66,7 +66,7 @@ public class Delaunay {
         }
 
         // turn links into edges
-        edges = new float[linkCount][4];
+        edges = new double[linkCount][4];
         for (int i = 0; i < linkCount; i++) {
             edges[i][0] = points[links[i][0]][0];
             edges[i][1] = points[links[i][0]][1];
@@ -76,7 +76,7 @@ public class Delaunay {
 
     }
 
-    public float[][] getEdges() {
+    public double[][] getEdges() {
         return edges;
     }
 

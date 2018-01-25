@@ -4,7 +4,7 @@ import processing.core.*;
 
 public class MPolygon {
 
-	float[][] coords;
+	double[][] coords;
 	int count;
 	
 	public MPolygon(){
@@ -12,11 +12,11 @@ public class MPolygon {
 	}
 
 	public MPolygon(int points){
-		coords = new float[points][2];
+		coords = new double[points][2];
 		count = 0;
 	}
 
-	public void add(float x, float y){
+	public void add(double x, double y){
 		coords[count][0] = x;
 		coords[count++][1] = y;
 	}
@@ -28,7 +28,7 @@ public class MPolygon {
 	public void draw(PGraphics g){
 		g.beginShape();
 		for(int i=0; i<count; i++){
-			g.vertex(coords[i][0], coords[i][1]);
+			g.vertex((float)coords[i][0], (float)coords[i][1]);
 		}
 		g.endShape(PApplet.CLOSE);
 	}
@@ -37,7 +37,7 @@ public class MPolygon {
 		return count;
 	}
 
-	public float[][] getCoords(){
+	public double[][] getCoords(){
 		return coords;
 	}
 

@@ -41,9 +41,9 @@ public class EasyQhull extends quickhull3d.QuickHull3D {
      *
      * @param pts
      */
-    public void build(float[][] pts) {
+    public void build(double[][] pts) {
         List<Point3d> list = new ArrayList<>();
-        for (float[] pt : pts) {
+        for (double[] pt : pts) {
             Point3d p3 = new Point3d((double) pt[0], (double) pt[1], (double) pt[2]);
             list.add(p3);
         }
@@ -54,12 +54,12 @@ public class EasyQhull extends quickhull3d.QuickHull3D {
      *
      * @return
      */
-    public float[][] getVertArray() {
-        float[][] vertices = new float[numVertices][3];
+    public double[][] getVertArray() {
+        double[][] vertices = new double[numVertices][3];
         for (int i = 0; i < numVertices; i++) {
-            vertices[i][X] =  (float) pointBuffer[vertexPointIndices[i]].getPoint().x;
-            vertices[i][Y] =  (float) pointBuffer[vertexPointIndices[i]].getPoint().y;
-            vertices[i][Z] =  (float) pointBuffer[vertexPointIndices[i]].getPoint().z;
+            vertices[i][X] =  (double) pointBuffer[vertexPointIndices[i]].getPoint().x;
+            vertices[i][Y] =  (double) pointBuffer[vertexPointIndices[i]].getPoint().y;
+            vertices[i][Z] =  (double) pointBuffer[vertexPointIndices[i]].getPoint().z;
         }
         return vertices;
     }

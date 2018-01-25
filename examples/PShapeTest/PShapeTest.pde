@@ -3,7 +3,7 @@ import easy.*;
 import java.io.PrintStream;
 
 EasyQhull hull = new EasyQhull(this); //init quickhull
-float[][] points = {
+double[][] points = {
     {0.0, -80.0, 0.0}, 
     {0.0, 0.0, 0.0}, 
     {0.0, 0.0, 100.0}, 
@@ -30,7 +30,7 @@ void setup() {
   if (hull.check()) {
     hull.exportWavefront("test.obj");
   }
-  float[][] vertices = hull.getVertArray();  //get vertices
+  double[][] vertices = hull.getVertArray();  //get vertices
   shape = createShape();
   shape.beginShape(TRIANGLES);
   shape.ambient(200, 100, 100);
@@ -40,10 +40,10 @@ void setup() {
   for (int i = 0; i < faceIndices.length; i++) {
     for (int k = 0; k < faceIndices[i].length; k++) {
       //get points that correspond to each face
-      float[] pnt2 = vertices[faceIndices[i][k]];
-      float x = pnt2[X];
-      float y = pnt2[Y];
-      float z = pnt2[Z];
+      double[] pnt2 = vertices[faceIndices[i][k]];
+      double x = pnt2[X];
+      double y = pnt2[Y];
+      double z = pnt2[Z];
       shape.vertex(x, y, z);
     }
   }

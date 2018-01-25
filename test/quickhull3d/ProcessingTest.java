@@ -10,10 +10,10 @@ import processing.core.PApplet;
 public class ProcessingTest extends PApplet {
 
     EasyQhull hull;
-// An array of float to store the calculated vertices of the convex hull
-    float[][] vertices;
+// An array of double to store the calculated vertices of the convex hull
+    double[][] vertices;
 // a set of initial data points
-    float[][] pts = {
+    double[][] pts = {
         {0.0f, 0.0f, 0.0f},
         {0.0f, 0.0f, 50.0f},
         {0.0f, 50.0f, 0.0f},
@@ -34,12 +34,12 @@ public class ProcessingTest extends PApplet {
         hull = new EasyQhull(this);      // init quickhull
         hull.build(pts);                 // build hull
         hull.triangulate();              // triangulate faces
-        vertices = hull.getVertArray();  // get vertices as an array of float[]
+        vertices = hull.getVertArray();  // get vertices as an array of double[]
         if (hull.check()) {
             hull.exportWavefront("test.obj");
         }
-    }    
-    
+    }
+
     /**
      *
      */
@@ -49,7 +49,7 @@ public class ProcessingTest extends PApplet {
         smooth();
         translate(width / 2, height / 2);
         rotateY(frameCount * 0.01f);
-        rotateZ(frameCount * 0.01f);        
+        rotateZ(frameCount * 0.01f);
         pushMatrix();
         translate(-25, -25, -25);
         beginShape(TRIANGLES);
@@ -58,17 +58,17 @@ public class ProcessingTest extends PApplet {
         for (int[] faceIndice : faceIndices) {
             for (int k = 0; k < faceIndice.length; k++) {
                 //get points that correspond to each face
-                float[] pnt2 = vertices[faceIndice[k]];
-                float x = pnt2[X];
-                float y = pnt2[Y];
-                float z = pnt2[Z];
+                double[] pnt2 = vertices[faceIndice[k]];
+                double x = pnt2[X];
+                double y = pnt2[Y];
+                double z = pnt2[Z];
                 vertex(x, y, z);
             }
         }
         endShape();
         popMatrix();
     }
-    
+
     /**
      *
      * @param args
