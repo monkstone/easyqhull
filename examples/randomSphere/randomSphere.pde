@@ -32,9 +32,9 @@ void draw() {
     for (int k = 0; k < faceIndices[i].length; k++) {
       //get points that correspond to each face
       double[] pnt2 = vertices[faceIndices[i][k]];
-      double x = pnt2[X];
-      double y = pnt2[Y];
-      double z = pnt2[Z];
+      float x = (float)pnt2[X];
+      float y = (float)pnt2[Y];
+      float z = (float)pnt2[Z];
       vertex(x, y, z);
     }
   }
@@ -43,9 +43,9 @@ void draw() {
 
 double[] getRandomPoint(double radius){
   double z = random(-1, 1);
-  double rxy = sqrt(1 - z*z);
+  double rxy = Math.sqrt(1 - z*z);
   double phi = random(0, 2*PI);
-  double x = rxy * cos(phi);
-  double y = rxy * sin(phi);
+  double x = rxy * Math.cos(phi);
+  double y = rxy * Math.sin(phi);
   return new double[]{x * radius, y * radius, z * radius};
 }

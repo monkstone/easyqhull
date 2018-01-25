@@ -24,7 +24,7 @@ void setup() {
       color leftPix = edges.pixels[leftLoc];
 
       // New color is difference between pixel and left neighbor
-      double diff = abs(brightness(pix) - brightness(leftPix));
+      float diff = abs(brightness(pix) - brightness(leftPix));
       edges.pixels[leftLoc] = color(diff);
     }
   }
@@ -89,7 +89,9 @@ public void drawRegion(MPolygon poly) {
   beginShape();
   double[][] coords = poly.getCoords();
   for (int i=0; i<coords.length; i++) {
-    vertex(coords[i][0] * scale, coords[i][1] * scale);
+    float x = (float)(coords[i][0] * scale);
+    float y = (float)(coords[i][1] * scale);
+    vertex(x, y);
   }
   endShape(PApplet.CLOSE);
 }
