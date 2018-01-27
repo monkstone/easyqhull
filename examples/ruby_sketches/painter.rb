@@ -1,6 +1,4 @@
-
-load_library :easyqhull
-include_package 'easy'
+require 'easyqhull'
 
 SCALE = 2.0
 ISCALE = 1 / SCALE
