@@ -1,4 +1,4 @@
-KLASSES = %w[Delaunay EasyQHull Hull Voronoi PointInterface VoronoiFactory].freeze
+KLASSES = %w[Delaunay EasyQhull Hull Voronoi PointInterface VoronoiFactory].freeze
 
 if RUBY_PLATFORM == 'java'
   require_relative 'easyqhull.jar'
