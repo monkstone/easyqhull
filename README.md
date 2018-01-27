@@ -1,6 +1,4 @@
 easyqhull
 =========
 
-Simple processing wrapper for QuickHull3D
-
-Minor modification of the original QuickHull3D, mainly to replace Vector with List, and add an accessor for Vertex to get Point3D (this was done so we can use arrays of double[] instead from processing). Currently designed to output convex hull from a given set of 3d coordinates as a double[][] (grouped by faces) also output to wavefront 3d file.
+Simple ruby-processing wrapper for QuickHull3D, this is an evolving project, that will exclusively target JRubyArt and propane. There is no need for a processing version. The intention is to create a gem that is easy to use but backed up by fast java algorithms.
