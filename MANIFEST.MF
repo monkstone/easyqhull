@@ -1,0 +1,2 @@
+Implementation-Title: EasyQHull for JRubyArt and propane)
+Implementation-Version: 0.3.0
