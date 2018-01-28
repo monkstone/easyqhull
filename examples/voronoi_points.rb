@@ -11,7 +11,7 @@ end
 def setup
   sketch_title 'Voronoi'
   color_mode HSB, 1.0
-  values = (0..100).map { Point.new(rand*300, rand*300) }
+  values = (0..100).map { Point.random(width, height) }
   @voronoi = VoronoiImp.new.from_points(values)
 end
 
