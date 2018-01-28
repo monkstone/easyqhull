@@ -8,3 +8,5 @@ if RUBY_PLATFORM == 'java'
   easy_format = 'easy.%s'
   import_class_list(KLASSES, easy_format)
 end
+
+require_relative 'easyqhull/point'
