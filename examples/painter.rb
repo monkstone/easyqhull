@@ -26,7 +26,7 @@ def setup
   end
   while point_array.length < NUM_POINTS
     pnt = [rand(0..edges.width.to_f), rand(0..edges.height.to_f)]
-    point_array << pnt if (red(edges.get(pnt[0], pnt[1])) > 1)
+    point_array << pnt if red(edges.get(pnt.x, pnt.y)) > 1
   end
 end
 
