@@ -25,17 +25,17 @@ def setup
     end
   end
   while point_array.length < NUM_POINTS
-    pnt = [rand(0..edges.width.to_f), rand(0..edges.height.to_f)]
+    pnt = Point.random(edges.width, edges.height)
     point_array << pnt if red(edges.get(pnt.x, pnt.y)) > 1
   end
 end
 
 def draw
   image(img, 0, 0, width, height )
-  voronoi = Voronoi.new(point_array.to_java(Java::double[]))
-  my_regions = voronoi.get_regions
+  voronoi = Voronoi.from_points(point_array)
+  my_regions = voronoi.regions
   my_regions.each_with_index do |region, i|
-    c = img.get(point_array[i][0], point_array[i][1])
+    c = img.get(point_array[i].x, point_array[i].y)
     fill(c)
     stroke(red(c)*0.9, green(c)*0.9, blue(c)*0.9)
     draw_region(region)
@@ -46,7 +46,7 @@ end
 
 def draw_region(poly)
   begin_shape
-  coords = poly.get_coords
+  coords = poly.coordinates
   coords.each { |coord| vertex((coord[0] * SCALE), (coord[1] * SCALE)) }
   end_shape(CLOSE)
 end

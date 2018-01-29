@@ -11,7 +11,7 @@ DO NOT MODIFIY - GENERATED CODE
   <modelVersion>4.0.0</modelVersion>
   <groupId>ruby-processing</groupId>
   <artifactId>easyqh</artifactId>
-  <version>1.4.5</version>
+  <version>0.3.0</version>
   <name>easyqh</name>
   <description>easyqh for processing</description>
   <url>https://github.com/ruby-processing/JRubyArt</url>

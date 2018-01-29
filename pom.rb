@@ -2,7 +2,7 @@ require 'fileutils'
 project 'easyqh', 'https://github.com/ruby-processing/JRubyArt' do
 
   model_version '4.0.0'
-  id 'ruby-processing:easyqh', '1.4.5'
+  id 'ruby-processing:easyqh', '0.3.0'
   packaging 'jar'
 
   description 'easyqh for processing'

@@ -37,7 +37,7 @@ public class MPolygon {
 		return count;
 	}
 
-	public double[][] getCoords(){
+	public double[][] coordinates(){
 		return coords;
 	}
 

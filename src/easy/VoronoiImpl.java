@@ -2,12 +2,12 @@ package easy;
 
 import quickhull3d.QuickHull3D;
 
-public final class Voronoi {
+public final class VoronoiImpl {
 
     double[][] edges;
     MPolygon[] regions;
 
-    public Voronoi(double[][] points) {
+    public VoronoiImpl(double[][] points) {
 
         if (points.length < 1) {
             edges = new double[0][4];
@@ -154,11 +154,11 @@ public final class Voronoi {
 
     }
 
-    public MPolygon[] getRegions() {
+    public MPolygon[] regions() {
         return regions;
     }
 
-    public double[][] getEdges() {
+    public double[][] edges() {
         return edges;
     }
 

@@ -13,11 +13,11 @@ class Point
   end
 end
 
-class VoronoiImp
+class Voronoi
   include VoronoiFactory
 
-  def from_points(values)
+  def self.from_points(values)
     points = values.map { |value| [value.x, value.y] }
-     Voronoi.new(points.to_java(Java::double[]))
+    VoronoiImpl.new(points.to_java(Java::double[]))
    end
  end
